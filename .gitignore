@@ -1,0 +1,8 @@
+/.metadata/
+**/.svn/
+**/bin/
+/root/.classpath
+/root/.project
+
+*.class
+
