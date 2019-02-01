@@ -1,0 +1,6 @@
+# the cron command on the rimu server
+/usr/java/jdk/bin/java -classpath /root/LogBot:/root/LogBot/lib/pircbot.jar org.jibble.logbot.LogBotMain /root/LogBot >> /root/LogBot/logbot.out 2>&1
+
+# the console command on the rimu server
+/usr/java/jdk/bin/java -classpath /root/LogBot:/root/LogBot/lib/pircbot.jar org.jibble.logbot.LogBotMain /root/LogBot
+ 
