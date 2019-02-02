@@ -17,6 +17,7 @@ public class LogBotMain {
         String server = p.getProperty("Server", "localhost");
         String channel = p.getProperty("Channel", "#test");
         String nick = p.getProperty("Nick", "LogBot");
+        String pass = p.getProperty("Pass", "thePassword");
         String joinMessage = p.getProperty("JoinMessage", "This channel is logged.");
         File outDir = new File(p.getProperty("OutputDir", rootDir.concat("/output/")));
         outDir.mkdirs();
@@ -40,7 +41,7 @@ public class LogBotMain {
         writer.flush();
         writer.close();
         LogBot bot = new LogBot(nick, outDir, joinMessage);
-        bot.connect(server);
+        bot.connect(server, pass);
         bot.joinChannel(channel);
     }
 }

@@ -27,6 +27,8 @@ public class LogBot extends PircBot {
     public static final String BRICK = "irc-brick";
 
     public static final String RED = "irc-red";
+    
+    private static final int DEFAULT_PORT = 6667; // see PircBot.connect(hostname)
 
     private File _outDir;
 
@@ -230,5 +232,10 @@ public class LogBot extends PircBot {
         output.close();
         input.close();
     }
+
+	public final synchronized void connect(String server, String pass)
+			throws IOException, IrcException, NickAlreadyInUseException {
+		connect(server, DEFAULT_PORT, pass);
+	}
 
 }
