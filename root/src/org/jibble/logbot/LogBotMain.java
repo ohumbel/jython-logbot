@@ -1,7 +1,10 @@
 package org.jibble.logbot;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.util.Properties;
 
 public class LogBotMain {
 

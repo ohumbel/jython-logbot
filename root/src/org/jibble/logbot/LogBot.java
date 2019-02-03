@@ -1,10 +1,23 @@
 package org.jibble.logbot;
 
-import java.util.*;
-import java.util.regex.*;
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.text.SimpleDateFormat;
-import org.jibble.pircbot.*;
+import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.jibble.pircbot.Colors;
+import org.jibble.pircbot.IrcException;
+import org.jibble.pircbot.NickAlreadyInUseException;
+import org.jibble.pircbot.PircBot;
 
 public class LogBot extends PircBot {
 
