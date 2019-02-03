@@ -4,6 +4,7 @@
 **/bin/
 /root/.classpath
 /root/.project
+/root/output/
 
 *.class
 
