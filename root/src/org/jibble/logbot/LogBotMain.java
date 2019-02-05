@@ -17,7 +17,7 @@ public class LogBotMain {
 	} else {
 	    rootDir = ".";
 	}
-	log("root dir (expected subdir /html): " + rootDir);
+	debug("root dir (expected subdir /html): " + rootDir);
 
 	Properties p = new Properties();
 	p.load(new FileInputStream(new File(rootDir.concat("/config.ini"))));
@@ -26,11 +26,11 @@ public class LogBotMain {
 	String nick = p.getProperty("Nick", "LogBot");
 	String pass = p.getProperty("Pass", "thePassword");
 	String joinMessage = p.getProperty("JoinMessage", "This channel is logged.");
-	log("server: " + server);
-	log("channel: " + channel);
-	log("nick: " + nick);
-	log("pass: " + pass);
-	log("joinMessage: " + joinMessage);
+	debug("server: " + server);
+	debug("channel: " + channel);
+	debug("nick: " + nick);
+	debug("pass: " + pass);
+	debug("joinMessage: " + joinMessage);
 
 	File outDir = new File(p.getProperty("OutputDir", rootDir.concat("/output/")));
 	outDir.mkdirs();
@@ -38,7 +38,7 @@ public class LogBotMain {
 	    System.out.println("Cannot make output directory (" + outDir + ")");
 	    System.exit(1);
 	}
-	log("outDir: " + outDir);
+	debug("outDir: " + outDir);
 
 	LogBot.copy(new File(rootDir.concat("/html/header.inc.php")), new File(outDir, "header.inc.php"));
 	LogBot.copy(new File(rootDir.concat("/html/footer.inc.php")), new File(outDir, "footer.inc.php"));
@@ -56,12 +56,12 @@ public class LogBotMain {
 	writer.flush();
 	writer.close();
 
-	LogBot bot = new LogBot(nick, outDir, joinMessage);
+	LogBot bot = new LogBot(nick, channel, outDir, joinMessage);
+	debug(">-- connecting ...");
 	bot.connect(server, pass);
-	bot.joinChannel(channel);
     }
 
-    private static void log(String msg) {
+    protected static void debug(String msg) {
 	if (DEBUG) {
 	    System.out.println(msg);
 	}

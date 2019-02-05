@@ -1,5 +1,7 @@
 package org.jibble.logbot;
 
+import static org.jibble.logbot.LogBotMain.debug;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
@@ -43,13 +45,14 @@ public class LogBot extends PircBot {
 
     private static final int DEFAULT_PORT = 6667; // see PircBot.connect(hostname)
 
-    private File _outDir;
+    private final File _outDir;
+    private final String _channel;
+    private final String _joinMessage;
 
-    private String _joinMessage;
-
-    public LogBot(String name, File outDir, String joinMessage) {
+    public LogBot(String name, String channel, File outDir, String joinMessage) {
 	setName(name);
 	setVerbose(true);
+	_channel = channel;
 	_outDir = outDir;
 	_joinMessage = joinMessage;
     }
@@ -188,6 +191,12 @@ public class LogBot extends PircBot {
 	if (recipientNick.equalsIgnoreCase(getNick())) {
 	    joinChannel(channel);
 	}
+    }
+
+    @Override
+    protected void onConnect() {
+	debug(">-- onConnect() - now joining " + _channel);
+	joinChannel(_channel);
     }
 
     @Override
