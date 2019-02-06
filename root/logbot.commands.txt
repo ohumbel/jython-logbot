@@ -4,3 +4,23 @@
 # the console command on the rimu server
 /usr/java/jdk/bin/java -classpath /root/LogBot:/root/LogBot/lib/pircbot.jar org.jibble.logbot.LogBotMain /root/LogBot
  
+ 
+ 
+ # server layout
+ 
+ root@lazynbox:~# cd LogBot/
+root@lazynbox:~/LogBot# ll
+total 179552
+drwxr-xr-x  5 root root      4096 Jun 23  2010 ./
+drwx------ 15 root root      4096 Feb  6 18:12 ../
+-rw-r--r--  1 root root       303 Jul  8  2010 config.ini
+drwxr-xr-x  3 root root      4096 Jun 21  2010 html/
+drwxr-xr-x  3 root root      4096 Jun 21  2010 lib/
+-rw-r--r--  1 root root 183644848 Feb  4 09:17 logbot.out
+drwxr-xr-x  4 root root      4096 Jun 21  2010 org/
+-rwxr-xr-x  1 root root        66 Jun 21  2010 run.sh*
+root@lazynbox:~/LogBot# rm logbot.out 
+root@lazynbox:~/LogBot# cat run.sh 
+java -classpath .:./lib/pircbot.jar org.jibble.logbot.LogBotMain
+root@lazynbox:~/LogBot# 
+ 
