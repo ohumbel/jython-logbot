@@ -39,4 +39,4 @@ body {
 
 <body>
 
-<h1><?php echo($channel); ?> IRC Log</h1>
+<h1><?php echo($channel); ?> IRC Log (v0.9)</h1>
